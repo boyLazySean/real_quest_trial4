@@ -14,7 +14,7 @@ class Todo {
 }
 
 // 변수들
-int _numTodo = 0;
+int _numCurrentTodo = 0;
 
 class MainPage extends StatelessWidget {
   @override
@@ -62,7 +62,7 @@ class _mainPageState extends State<mainPage> {
     setState(() {
       _items.add(todo);
       _todoController.text = '';
-      _numTodo++;
+      _numCurrentTodo++;
     });
   }
 
@@ -205,13 +205,13 @@ class _mainPageState extends State<mainPage> {
             ListView.separated(
               physics: ClampingScrollPhysics(),
               itemBuilder: (BuildContext context, todo) {
-                if (_numTodo == 0) {
+                if (_numCurrentTodo == 0) {
                   return Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Divider(
-                        height: 25,
+                        height: 18,
                         color: Colors.white.withOpacity(1.0),
                       ),
                       Text('Nothing to Do Today!',
@@ -252,7 +252,7 @@ class _mainPageState extends State<mainPage> {
       controlAffinity: ListTileControlAffinity.leading,
       checkColor: Colors.white,
       value: todo.isDone,
-      isThreeLine: true,
+      isThreeLine: false,
       title: Text(
         todo.title,
         style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -265,6 +265,7 @@ class _mainPageState extends State<mainPage> {
         setState(() {
           todo.isDone = isDone;
           _deleteTodo(todo);
+          _numCurrentTodo--;
         });
       },
     );
