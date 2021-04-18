@@ -39,7 +39,7 @@ class _mainPageState extends State<mainPage> {
   final double _initFabHeight = 120.0;
   double _fabHeight;
   double _panelHeightOpen;
-  double _panelHeightClosed = 95.0;
+  double _panelHeightClosed = 85.0;
 
   @override
   void initState() {
@@ -255,7 +255,7 @@ class _mainPageState extends State<mainPage> {
       isThreeLine: true,
       title: Text(
         todo.title,
-        style: TextStyle(fontSize: 20),
+        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
       ),
       subtitle: Text(
         DateFormat('MM월 dd일').format(todo.date),
