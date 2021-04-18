@@ -264,6 +264,7 @@ class _mainPageState extends State<mainPage> {
       onChanged: (bool isDone) {
         setState(() {
           todo.isDone = isDone;
+          _deleteTodo(todo);
         });
       },
     );
