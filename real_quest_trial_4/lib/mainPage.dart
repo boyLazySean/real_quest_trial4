@@ -316,10 +316,13 @@ class _mainPageState extends State<mainPage> {
                     Spacer(),
                     TextButton(
                       child: Text('Save'),
-                      onPressed: () => _addTodo(
-                        Todo(_todoController.text, _date, _time),
-                      ),
-                    )
+                      onPressed: () {
+                        _addTodo(
+                          Todo(_todoController.text, _date, _time),
+                        );
+                        Navigator.of(context).pop();
+                      },
+                    ),
                   ],
                 ),
               ],
