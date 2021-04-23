@@ -225,7 +225,7 @@ class _mainPageState extends State<mainPage> {
                 } else {
                   return ListBody(
                       children: _items
-                          .map((todo) => _buildItemWidget(todo))
+                          .map((todo) => _buildItemWidget2(todo))
                           .toList());
                 }
               },
@@ -268,6 +268,34 @@ class _mainPageState extends State<mainPage> {
           _numCurrentTodo--;
         });
       },
+    );
+  }
+
+//Card Type으로 Todo List 생성 위젯
+  Widget _buildItemWidget2(Todo todo) {
+    return Card(
+      elevation: 2.0,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+      child: ListTile(
+        leading: Checkbox(
+            value: todo.isDone,
+            onChanged: (bool isDone) {
+              setState(() {
+                todo.isDone = isDone;
+                _deleteTodo(todo);
+                _numCurrentTodo--;
+              });
+            }),
+        title: Text(
+          todo.title,
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
+        subtitle: Text(
+          DateFormat('MM월 dd일').format(todo.date),
+          style: TextStyle(fontSize: 15),
+        ),
+        onTap: () {}, //TODO: Todo item 수정화면 팝업 추가
+      ),
     );
   }
 
