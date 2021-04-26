@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:real_quest_trial_4/mainPage.dart';
+import 'package:provider/provider.dart';
+import 'package:real_quest_trial_4/pages/homePage.dart';
 import 'dart:async';
+
+import 'package:real_quest_trial_4/provider/todos.dart';
 
 void main() {
   runApp(MyApp());
@@ -9,13 +12,14 @@ void main() {
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter RQ Trial',
-      theme: ThemeData(),
-      home: StartPage(),
-    );
-  }
+  Widget build(BuildContext context) => ChangeNotifierProvider(
+      create: (context) => TodosProvider(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Fluter RQ Trial',
+        theme: ThemeData(),
+        home: StartPage(),
+      ));
 }
 
 class StartPage extends StatefulWidget {
@@ -41,6 +45,6 @@ class _StartPageState extends State<StartPage> {
 
   void openMainPage() {
     Navigator.push(
-        context, MaterialPageRoute(builder: (context) => MainPage()));
+        context, MaterialPageRoute(builder: (context) => HomePage()));
   }
 }
