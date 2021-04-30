@@ -64,7 +64,11 @@ class _HomePageState extends State<HomePage> {
             isScrollControlled: true,
             elevation: 5,
             context: context, 
-            builder: (context) => AddTodoWidget(),)
+            //builder: (context) => AddTodoWidget(),)
+            builder: (context) => Padding(
+              padding: EdgeInsets.all(15),
+              child: AddTodoWidget(),
+            ),),
         ),
       ),
       floatingActionButtonLocation:
@@ -114,7 +118,7 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
             TodoListWidget(),
-            ExpansionTile(title: Text('Completed'), initiallyExpanded: false, children: [CompletedListWidget()],)
+            ExpansionTile(title: Text('Completed'), initiallyExpanded: false, children: [CompletedListWidget()],),
           ],
         ),
     );

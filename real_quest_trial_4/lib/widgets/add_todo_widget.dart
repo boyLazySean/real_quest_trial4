@@ -15,9 +15,11 @@ class _AddTodoWidgetState extends State<AddTodoWidget> {
   String description = '';
 
   @override
-  Widget build(BuildContext context) => Padding(
+  Widget build(BuildContext context){ 
+        //content: Form(
+        return Form(
         key: _formKey,
-        padding: EdgeInsets.all(15),
+        //padding: EdgeInsets.all(15),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -26,10 +28,11 @@ class _AddTodoWidgetState extends State<AddTodoWidget> {
                 onChangedTitle: (title) => setState(() => this.title = title),
                 onChangedDescription: (description) =>
                     setState(() => this.description = description),
-                onSavedTodo: addTodo),
+                onSavedTodo: addTodo
+            ),
           ],
         ),
-      );
+      );}
 
   void addTodo() {
     final isValid = _formKey.currentState.validate();
@@ -48,7 +51,6 @@ class _AddTodoWidgetState extends State<AddTodoWidget> {
       provider.addTodo(todo);
 
       Navigator.of(context).pop();
-      ;
     }
   }
 }

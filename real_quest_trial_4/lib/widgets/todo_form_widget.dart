@@ -79,7 +79,7 @@ class TodoFormWidget extends StatelessWidget {
   Future<void> showDateDialog(BuildContext context) async {
     final newDate = await showDatePicker(
       context: context,
-      initialDate: date,
+      initialDate: DateTime.now(),
       firstDate: DateTime(2000),
       lastDate: DateTime(3000),
       helpText: 'Select a Date',

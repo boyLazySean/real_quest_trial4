@@ -17,7 +17,7 @@ class TodoListWidget extends StatelessWidget {
             ),
           )
         : ListView.separated(
-            physics: BouncingScrollPhysics(),
+            physics: ClampingScrollPhysics(),
             padding: EdgeInsets.all(16),
             separatorBuilder: (context, index) => Container(height: 8),
             itemCount: todos.length,
@@ -26,6 +26,7 @@ class TodoListWidget extends StatelessWidget {
 
               return TodoWidget(todo: todo);
             },
+            shrinkWrap: true,
           );
   }
 }
