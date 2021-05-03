@@ -19,6 +19,7 @@ class CompletedListWidget extends StatelessWidget {
         : ListView.separated(
             physics: BouncingScrollPhysics(),
             padding: EdgeInsets.all(16),
+            shrinkWrap: true,
             separatorBuilder: (context, index) => Container(height: 8),
             itemCount: todos.length,
             itemBuilder: (context, index) {

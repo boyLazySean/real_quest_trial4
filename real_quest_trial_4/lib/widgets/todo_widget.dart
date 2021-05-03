@@ -44,7 +44,8 @@ class TodoWidget extends StatelessWidget {
         onTap: () => editTodo(context, todo),
         child: Container(
           color: Colors.white,
-          padding: EdgeInsets.all(20),
+          padding: EdgeInsets.symmetric(horizontal: 1),
+          //padding: EdgeInsets.all(5),
           child: Row(
             children: [
               Checkbox(
@@ -62,7 +63,7 @@ class TodoWidget extends StatelessWidget {
                   );
                 },
               ),
-              const SizedBox(width: 20),
+              const SizedBox(width: 10),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,15 +73,15 @@ class TodoWidget extends StatelessWidget {
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Theme.of(context).primaryColor,
-                        fontSize: 22,
+                        fontSize: 20,
                       ),
                     ),
                     if (todo.description.isNotEmpty)
                       Container(
-                        margin: EdgeInsets.only(top: 4),
+                        margin: EdgeInsets.only(top: 2),
                         child: Text(
                           todo.description,
-                          style: TextStyle(fontSize: 20, height: 1.5),
+                          style: TextStyle(fontSize: 16, height: 1),
                         ),
                       )
                   ],

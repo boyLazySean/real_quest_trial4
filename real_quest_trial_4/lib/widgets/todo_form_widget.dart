@@ -26,7 +26,7 @@ class TodoFormWidget extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             buildTitle(),
-            SizedBox(height: 2),
+            SizedBox(height: 1),
             buildDescription(),
             Column(
               children: [
