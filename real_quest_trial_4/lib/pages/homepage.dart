@@ -152,7 +152,7 @@ class _HomePageState extends State<HomePage> {
           ExpansionTile(
             title: Text('Completed'),
             initiallyExpanded: false,
-            children: <Widget>[CompletedListWidget()],
+            children: <Widget>[CompletedListWidget(),],
           ),
         ],
       ),

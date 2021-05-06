@@ -10,12 +10,17 @@ class TodoListWidget extends StatelessWidget {
     final todos = provider.todos;
 
     return todos.isEmpty
-        ? Center(
-            child: Text(
-              'No todos.',
-              style: TextStyle(fontSize: 20),
+        ? Padding(
+            padding: 
+              EdgeInsets.symmetric(vertical: 20), 
+            child: Center(
+              child: Text(
+                'No todos.',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
             ),
-          )
+        )
+
         : ListView.separated(
             physics: ClampingScrollPhysics(),
             padding: EdgeInsets.all(10),
